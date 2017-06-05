@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SFXManager : MonoBehaviour {
+
+    public AudioSource playerHurt;
+    public AudioSource playerDead;
+    public AudioSource playerAttack;
+
+    private static bool sfxmanExists;
+	// Use this for initialization
+	void Start () {
+        if (!sfxmanExists) {
+            sfxmanExists = true;
+            DontDestroyOnLoad(transform.root.gameObject);
+            DontDestroyOnLoad(transform.gameObject);
+        } else {
+            Destroy(gameObject);
+            sfxmanExists = false;
+        }
+    }
+}
